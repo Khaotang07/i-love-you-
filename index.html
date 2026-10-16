@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05030a">
+  <title>Neon Love Heart ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="heart-wrap" aria-label="หัวใจพร้อมข้อความบอกรัก">
+      <div class="heart-glow"></div>
+      <svg class="heart-outline" viewBox="0 0 320 290" role="img" aria-label="หัวใจสีชมพู">
+        <defs>
+          <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff3d9a"/>
+            <stop offset="55%" stop-color="#ff1744"/>
+            <stop offset="100%" stop-color="#ff80d5"/>
+          </linearGradient>
+          <filter id="neon">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <path class="heart-path" filter="url(#neon)"
+          d="M160 265 C137 242 24 161 24 83 C24 25 96 8 132 49 L160 80 L188 49 C224 8 296 25 296 83 C296 161 183 242 160 265 Z"
+          fill="none" stroke="url(#heartGradient)" stroke-width="5" stroke-linejoin="round"/>
+      </svg>
+      <div id="message-cloud" class="message-cloud" aria-hidden="true"></div>
+      <div class="main-message">I love you <span>❤️</span></div>
+    </div>
+
+    <section class="controls">
+      <h1>Neon Love Heart</h1>
+      <p>มีข้อความเล็ก ๆ อยากบอกเธอ 💗</p>
+      <button id="startButton" type="button">เปิดเพลงและเริ่มแอนิเมชัน ♫</button>
+      <div class="volume-row">
+        <label for="volume">ระดับเสียง</label>
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.2">
+        <span id="volumeValue">20%</span>
+      </div>
+      <p id="status" class="status" role="status">กดปุ่มเพื่อเริ่มเพลงและเอฟเฟกต์</p>
+    </section>
+    <audio id="loveSong" src="love.mp3" preload="auto" loop></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
